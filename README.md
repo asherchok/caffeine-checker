@@ -7,8 +7,11 @@
 
 For an Android APK version of this script, [click here](insert google drive link)
 
-## About
-The goal of this script is to skip the manual process of typing extra keywords like "is there caffeine in X" or "X caffeine content" in Google to check caffeine content of a food or beverage. This script is designed to achieve faster search results with lesser keyword query. The following sources were used to achieve the goal of this project:
+## Motivation
+To ensure a better quality of sleep, the author has decided to quit drinking caffeinated beverages past 1 PM. The goal of this script is to skip the manual process of typing extra keywords like "is there caffeine in X" or "X caffeine content" in Google to check caffeine content of a food or beverage. This script is designed to achieve faster search results with lesser keyword query. 
+
+## References
+The following sources were used to achieve the goal of this project:
 - [Search Engine Parser documentation](https://search-engine-parser.readthedocs.io/en/latest/)
 - [Number extraction from specific keywords](https://stackoverflow.com/questions/64801043/use-regular-expression-to-extract-numbers-before-specific-words)
 
@@ -30,18 +33,12 @@ At the directory that you had saved the caffeine<nolink>-checker.py script, ente
 python .\caffeine-checker.py
 ```
 ### Instructions
-Internet connection is required for this script to work. When the command above was ran in the terminal, user will be asked to enter the name of the food or beverage into the terminal.
+Internet connection is required for this script to work. When the command above was ran in the terminal, user will be asked to enter the name of the food or beverage into the terminal. Enter desired keyword into the prompt, then the script will do the following automatically:
 
-- Unplug the USB device.
-- Press '/' key.
+-Searches "Caffeine content in {your input}" on google
+-Obtain the amount of caffeine information from each website's featured snippets (or website description)
+-Display to user if said information exist or not.
 
-To stop the script entirely, press CTRL + BREAK (or pause key on laptop keyboards).
-
-##### (optional)
-To change the close window key other than the / key, simply edit Line 14 and change / into any other key. One possible example to close the window with c key instead of / would be:
-```sh
-      if cv2.waitKey(1) & 0xFF == ord('c'):
-```
 ## Limitations
 Current version of the script cannot query more than 10 results (i.e. beyond page 1 of google search results) to obtain larger quantity of webpage featured snippet.
 
