@@ -5,6 +5,7 @@
 
 import pprint, re
 from urllib.parse import urlparse
+
 from search_engine_parser.core.engines.google import Search as GoogleSearch
 
 #input
@@ -19,12 +20,6 @@ a = {"Google": gresults}
 i = 0
 j = 0
 query_limit = 10 #google query limits to only 10 so set it beyond 10 is pointless
-
-#keyword identifier
-units = '|'.join(["caffeine", "mg of caffeine"])
-number = '\d+[.,]?\d*'                            
-cases = fr'({number})(?:[\s\d\-\+\/]*)(?:{units})'
-pattern = re.compile(cases)
 
 #list to store all url infos
 list = []
@@ -46,17 +41,23 @@ while i < query_limit:
 #         print(pattern.findall(j)) # + gresults["links"](j))
 
 #list to filter out wanted url
-list_w_caf = []
-web_w_caf = []
+# list_w_caf = []
+# web_w_caf = []
 
-for j in list:
+#keyword identifier
+units = '|'.join(["mg of caffeine", "milligrams of caffeine", "of caffeine", "no caffeine", "zero caffeine"])
+number = '\d+[.,]?\d*'                  
+regex = fr'({number})(?i)((?:\S+\s+){{0,4}})\b(?:{units})\b\s*((?:\S+\s+){{0,4}})'
+pattern = re.compile(regex)
+
+for (j,k) in zip(list, websiteref):
     if pattern.findall(j):
+        #for caf_num in pattern.findall(j):
+        shortened_url = urlparse(str(k)).netloc
         for caf_num in pattern.findall(j):
-            list_w_caf.append(caf_num)
-            web_w_caf.append(snippet_url)
+            print(caf_num)
+            abbrv = '... ' + caf_num[1] + caf_num[2] + '...'
+        print(abbrv + " according to " + shortened_url + '\n[LINK] ' + k + '\n')
 
-print(list_w_caf)
-print(web_w_caf)
-
-for (k,t) in zip(list_w_caf, web_w_caf):
-    print("-->" + k + " mg of caffeine according to " + '\n' + t + '\n')
+            # list_w_caf.append(caf_num)
+            # web_w_caf.append(snippet_url)
