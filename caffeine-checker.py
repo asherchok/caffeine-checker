@@ -1,7 +1,7 @@
 #pip install pprintpp
 #pip install search_engine_parser
-#https://github.com/bisohns/search-engine-parser
-#https://stackoverflow.com/questions/64801043/use-regular-expression-to-extract-numbers-before-specific-words
+#https://search-engine-parser.readthedocs.io/en/latest/
+#https://docs.python.org/3/library/re.html
 
 import pprint, re
 from urllib.parse import urlparse
