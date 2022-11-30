@@ -5,7 +5,6 @@
 
 import pprint, re
 from urllib.parse import urlparse
-
 from search_engine_parser.core.engines.google import Search as GoogleSearch
 
 #input
