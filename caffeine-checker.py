@@ -1,8 +1,3 @@
-#pip install pprintpp
-#pip install search_engine_parser
-#https://search-engine-parser.readthedocs.io/en/latest/
-#https://docs.python.org/3/library/re.html
-
 import pprint, re
 from urllib.parse import urlparse
 
