@@ -43,7 +43,7 @@ Current version of the script cannot query more than 10 results (i.e. beyond pag
 
 ## Issues
 
-This work has omitted user agent option to allow faster query speed. If user request several search results in a short amount of time, the query will be flagged for unusual traffic and return the following error: \
+User agent option was omitted to allow faster query speed. However, if user request several search results in a short amount of time, then the query will be flagged for unusual traffic and return the following error: \
 ![alt text](https://github.com/asherchok/caffeine-checker/blob/main/traffic-error.JPG?raw=true)
 
 Pull requests are welcomed to improve the functionality of the script. Future improvement of this project would be developing a mobile phone app with similar function.
